@@ -1,0 +1,18 @@
+<div>
+    <table class = "center" border = "1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>State</th>
+            <th>City</th>
+        </tr>
+        <tr *ngFor = "let emp of employees">
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.salary}}</td>
+            <td *ngIf = "emp.address">{{emp.address.state}}</td>
+            <td *ngIf = "emp.address">{{emp.address.city}}</td>
+        </tr>
+    </table>
+</div>
