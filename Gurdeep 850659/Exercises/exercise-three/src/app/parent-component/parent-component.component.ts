@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-component.component.css']
 })
 export class ParentComponentComponent {
-name = "Gurdeep";
 
- likes : number = 0;
- dislikes : number =0;
+ likes : number | undefined = undefined;
+ dislikes : number | undefined = undefined;
+
+ handleClear(){
+   this.likes = 0;
+   this.dislikes = 0;
+ }
 }

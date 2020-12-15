@@ -3,8 +3,12 @@
    
 <h1>Number of likes : <span style="color: green;">{{likes}}</span></h1>
 <h1>Number of dislikes : <span style="color: red;">{{dislikes}}</span></h1>
-<app-child-component [username] = "name"
+<button (click) = "handleClear()">Clear</button>
+<app-child-component 
+
 (LikeCounter) = "likes = $event" 
 (DislikeCounter) = "dislikes = $event">
+[clearLike] = "likes"
+[clearDislike] = "dislikes"
 </app-child-component>
 </div>

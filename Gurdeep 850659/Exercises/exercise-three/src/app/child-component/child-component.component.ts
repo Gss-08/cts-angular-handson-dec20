@@ -10,8 +10,12 @@ import { EventEmitter } from "@angular/core";
 export class ChildComponentComponent  {
 
   @Input()
+  clearLike: number | undefined = undefined;
   
-  username : String = "";
+  @Input()
+  clearDislike: number | undefined = undefined;
+
+ 
 
 counter1 : number = 1;
 counter2 : number = 1;
@@ -23,14 +27,19 @@ LikeCounter : EventEmitter<number> = new EventEmitter<number>();
 DislikeCounter : EventEmitter<number> = new EventEmitter<number>();
 
 likeClick(){
+  if(this.clearLike == 0){
+    this.counter1 = 1;
+    this.clearLike = undefined;
+  }
   this.LikeCounter.emit(this.counter1++);
 }
 dislikeClick(){
+  if(this.clearDislike == 0){
+    this.counter2 = 1;
+    this.clearDislike = undefined;
+  }
   this.DislikeCounter.emit(this.counter2++);
 }
-clearClick(){
-  this.LikeCounter.emit(this.counter1 = 0);
-  this.DislikeCounter.emit(this.counter2=0);
-}
+
 
 }
